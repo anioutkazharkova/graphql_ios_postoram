@@ -37,5 +37,7 @@ class SettingsPresenter: ISettingsPresenter {
     }
     
     func logout() {
+        DI.dataContainer.userStorage?.logout()
+        self.view?.logout()
     }
 }

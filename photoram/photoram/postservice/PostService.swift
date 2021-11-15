@@ -121,7 +121,7 @@ class PostService {
     //MARK: comments
     func publishComment(item: CommentItem, completion: @escaping(Result<Bool, Error>)->Void) {
         var comment = item
-        guard let user = AuthHelper.shared.currentUser else {
+        guard let user = userStorage?.getUser() else {
             return
         }
         comment.userId = user.uid
